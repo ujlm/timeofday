@@ -16,38 +16,26 @@ public class TimeOfDay{
 	private int minutesSinceMidnight;
 	
 	public int getHours() {
-		return this.minutesSinceMidnight / 60; 
+		return minutesSinceMidnight / 60; 
 	}
 	public int getMinutes() { 
-		return this.minutesSinceMidnight % 60; 
+		return minutesSinceMidnight % 60; 
 	}
 	
 	/**
-	 * Sets this boject's hours.
+	 * Initializes this instance with the given hours and minutes.
 	 * 
 	 * @pre The given hours are between 0 and 23
 	 * 		| 0 <= hours && hours <= 23
-	 * @post This object's hours equal the given hours
-	 * 		| getHours() == hours
-	 * @post This object's minutes have remained unchanged
-	 * 		| getMinutes() == old(getMinutes())
-	 */
-	public void setHours(int hours) {
-		this.minutesSinceMidnight = hours*60 + this.getMinutes();
-	}
-	
-	/**
-	 * Sets this object's minutes
-	 * 
 	 * @pre The given minutes are between 0 and 59
 	 * 		| 0 <= minutes && minutes <= 59
-	 * @post This object's minutes equal the given minutes
+	 * @post This instance's hours equal to the given hours
+	 * 		| getHours() == hours
+	 * @post This instance's minutes equal the given minutes
 	 * 		| getMinutes() == minutes
-	 * @post This object's hours have remained unchanged
-	 * 		| getHours() == old(getHours())
 	 */
-	public void setMinutes(int minutes) {
-		this.minutesSinceMidnight = this.getHours() * 60 + minutes;
+	public TimeOfDay(int hours, int minutes) {
+		minutesSinceMidnight = hours * 60 + minutes;
 	}
 }
 
